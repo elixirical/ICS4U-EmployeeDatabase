@@ -27,32 +27,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-              <Component id="fullTimeRadioButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-              <Component id="partTimeRadioButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="64" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="deductionRateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="locationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="locationForm" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lastNameForm" alignment="0" max="32767" attributes="0"/>
-                          <Component id="firstNameForm" alignment="0" max="32767" attributes="0"/>
-                          <Component id="deductionRateForm" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="annualSalaryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="hourlyWageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -61,14 +39,38 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="weeksPerYearForm" pref="187" max="32767" attributes="0"/>
-                          <Component id="hoursPerWeekForm" max="32767" attributes="0"/>
-                          <Component id="hourlyWageForm" max="32767" attributes="0"/>
-                          <Component id="annualSalaryForm" max="32767" attributes="0"/>
+                          <Component id="annualSalaryForm" alignment="1" pref="196" max="32767" attributes="0"/>
+                          <Component id="hourlyWageForm" alignment="1" max="32767" attributes="0"/>
+                          <Component id="hoursPerWeekForm" alignment="1" max="32767" attributes="0"/>
+                          <Component id="weeksPerYearForm" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="deductionRateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="locationLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="deductionRateLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="locationForm" alignment="0" pref="196" max="32767" attributes="0"/>
+                          <Component id="lastNameForm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="firstNameForm" alignment="0" max="32767" attributes="0"/>
+                          <Component id="deductionRateForm" alignment="1" max="32767" attributes="0"/>
+                          <Component id="deductionRateForm1" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+              <Component id="fullTimeRadioButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Component id="partTimeRadioButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,6 +96,11 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deductionRateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="deductionRateForm" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="deductionRateLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deductionRateForm1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -209,6 +216,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="weeksPerYearForm">
+    </Component>
+    <Component class="javax.swing.JTextField" name="deductionRateForm1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="deductionRateLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Employee Number"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

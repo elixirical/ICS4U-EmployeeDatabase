@@ -1,19 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package employeedatabase;
 
-/**
- *
- * @author Alvin
- */
 public class JFramePopup extends javax.swing.JFrame {
 
-    /**
-     * Creates new form JFramePopup
-     */
     public JFramePopup() {
         initComponents();
     }
@@ -46,6 +34,8 @@ public class JFramePopup extends javax.swing.JFrame {
         hoursPerWeekForm = new javax.swing.JTextField();
         weeksPerYearLabel = new javax.swing.JLabel();
         weeksPerYearForm = new javax.swing.JTextField();
+        deductionRateForm1 = new javax.swing.JTextField();
+        deductionRateLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,32 +83,16 @@ public class JFramePopup extends javax.swing.JFrame {
 
         weeksPerYearLabel.setText("Weeks per Year");
 
+        deductionRateLabel1.setText("Employee Number");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(fullTimeRadioButton)
-                .addGap(29, 29, 29)
-                .addComponent(partTimeRadioButton)
-                .addContainerGap(64, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lastNameLabel)
-                            .addComponent(firstNameLabel)
-                            .addComponent(deductionRateLabel)
-                            .addComponent(locationLabel))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(locationForm)
-                            .addComponent(lastNameForm)
-                            .addComponent(firstNameForm)
-                            .addComponent(deductionRateForm, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(annualSalaryLabel)
                             .addComponent(hourlyWageLabel)
@@ -126,11 +100,31 @@ public class JFramePopup extends javax.swing.JFrame {
                             .addComponent(weeksPerYearLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(weeksPerYearForm, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(hoursPerWeekForm)
-                            .addComponent(hourlyWageForm)
-                            .addComponent(annualSalaryForm))))
+                            .addComponent(annualSalaryForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(hourlyWageForm, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(hoursPerWeekForm, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(weeksPerYearForm, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastNameLabel)
+                            .addComponent(firstNameLabel)
+                            .addComponent(deductionRateLabel)
+                            .addComponent(locationLabel)
+                            .addComponent(deductionRateLabel1))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(locationForm, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                            .addComponent(lastNameForm)
+                            .addComponent(firstNameForm)
+                            .addComponent(deductionRateForm, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(deductionRateForm1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(fullTimeRadioButton)
+                .addGap(29, 29, 29)
+                .addComponent(partTimeRadioButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,6 +145,10 @@ public class JFramePopup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deductionRateLabel)
                     .addComponent(deductionRateForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deductionRateLabel1)
+                    .addComponent(deductionRateForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeRadioButton)
@@ -239,7 +237,9 @@ public class JFramePopup extends javax.swing.JFrame {
     private javax.swing.JLabel annualSalaryLabel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField deductionRateForm;
+    private javax.swing.JTextField deductionRateForm1;
     private javax.swing.JLabel deductionRateLabel;
+    private javax.swing.JLabel deductionRateLabel1;
     private javax.swing.JTextField firstNameForm;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JRadioButton fullTimeRadioButton;
