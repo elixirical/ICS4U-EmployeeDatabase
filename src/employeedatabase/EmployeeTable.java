@@ -16,10 +16,10 @@ public class EmployeeTable {
 	private ArrayList<EmployeeData>[] hashTable; 
 	private int[] numInBucket;
 	
-	public sOpenHashTable ( int hashSize ){
+	public EmployeeTable ( int hashSize ){
 		k = hashSize;
 		initializeArray();
-	} public OpenHashTable () {
+	} public EmployeeTable () {
 		initializeArray();
 	}
 	
