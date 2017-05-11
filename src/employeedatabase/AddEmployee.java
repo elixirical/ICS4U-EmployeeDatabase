@@ -1,8 +1,8 @@
 package employeedatabase;
 
-public class JFramePopup extends javax.swing.JFrame {
+public class AddEmployee extends javax.swing.JFrame {
 
-    public JFramePopup() {
+    public AddEmployee() {
         initComponents();
     }
 
@@ -34,8 +34,9 @@ public class JFramePopup extends javax.swing.JFrame {
         hoursPerWeekForm = new javax.swing.JTextField();
         weeksPerYearLabel = new javax.swing.JLabel();
         weeksPerYearForm = new javax.swing.JTextField();
-        deductionRateForm1 = new javax.swing.JTextField();
+        employeeNumberForm = new javax.swing.JTextField();
         deductionRateLabel1 = new javax.swing.JLabel();
+        addEmployeeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +86,8 @@ public class JFramePopup extends javax.swing.JFrame {
 
         deductionRateLabel1.setText("Employee Number");
 
+        addEmployeeButton.setLabel("Add Employee");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,18 +95,6 @@ public class JFramePopup extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(annualSalaryLabel)
-                            .addComponent(hourlyWageLabel)
-                            .addComponent(hoursPerWeekLabel)
-                            .addComponent(weeksPerYearLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(annualSalaryForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
-                            .addComponent(hourlyWageForm, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(hoursPerWeekForm, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(weeksPerYearForm, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lastNameLabel)
@@ -117,7 +108,23 @@ public class JFramePopup extends javax.swing.JFrame {
                             .addComponent(lastNameForm)
                             .addComponent(firstNameForm)
                             .addComponent(deductionRateForm, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(deductionRateForm1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(employeeNumberForm, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(annualSalaryLabel)
+                            .addComponent(hourlyWageLabel)
+                            .addComponent(hoursPerWeekLabel)
+                            .addComponent(weeksPerYearLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(addEmployeeButton))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(annualSalaryForm, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                                .addComponent(hourlyWageForm, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(hoursPerWeekForm, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(weeksPerYearForm, javax.swing.GroupLayout.Alignment.TRAILING)))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
@@ -148,7 +155,7 @@ public class JFramePopup extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(deductionRateLabel1)
-                    .addComponent(deductionRateForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(employeeNumberForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fullTimeRadioButton)
@@ -169,8 +176,16 @@ public class JFramePopup extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(weeksPerYearLabel)
                     .addComponent(weeksPerYearForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        firstNameForm.getAccessibleContext().setAccessibleName("");
+        lastNameForm.getAccessibleContext().setAccessibleName("");
+        locationForm.getAccessibleContext().setAccessibleName("");
+        deductionRateForm.getAccessibleContext().setAccessibleName("");
+        employeeNumberForm.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,6 +212,33 @@ public class JFramePopup extends javax.swing.JFrame {
         annualSalaryForm.setEnabled(false);
     }//GEN-LAST:event_partTimeRadioButtonActionPerformed
 
+    private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        if (fullTimeRadioButton.isSelected() == true) {
+            FullTimeEmployee blah = new FullTimeEmployee();
+            blah.setFullTimeEmployee(
+                    Integer.parseInt(employeeNumberForm.getText()),
+                    firstNameForm.getText(),
+                    lastNameForm.getText(),
+                    locationForm.getText(),
+                    Double.parseDouble(deductionRateForm.getText()),
+                    Double.parseDouble(annualSalaryForm.getText())
+            );
+        } else {
+            PartTimeEmployee blah = new PartTimeEmployee();
+            blah.setPartTimeEmployee(
+                    Integer.parseInt(employeeNumberForm.getText()),
+                    firstNameForm.getText(),
+                    lastNameForm.getText(),
+                    locationForm.getText(),
+                    Double.parseDouble(deductionRateForm.getText()),
+                    Integer.parseInt(hourlyWageForm.getText()),
+                    Double.parseDouble(hoursPerWeekForm.getText()),
+                    Double.parseDouble(weeksPerYearForm.getText())
+            );
+        }
+        
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -214,32 +256,34 @@ public class JFramePopup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFramePopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFramePopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFramePopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFramePopup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AddEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFramePopup().setVisible(true);
+                new AddEmployee().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addEmployeeButton;
     private javax.swing.JTextField annualSalaryForm;
     private javax.swing.JLabel annualSalaryLabel;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField deductionRateForm;
-    private javax.swing.JTextField deductionRateForm1;
     private javax.swing.JLabel deductionRateLabel;
     private javax.swing.JLabel deductionRateLabel1;
+    private javax.swing.JTextField employeeNumberForm;
     private javax.swing.JTextField firstNameForm;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JRadioButton fullTimeRadioButton;

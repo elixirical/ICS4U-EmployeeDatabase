@@ -174,7 +174,7 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void addEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeesButtonActionPerformed
-        JFramePopup newPopup = new JFramePopup();
+        AddEmployee newPopup = new AddEmployee();
         newPopup.setVisible(true);
     }//GEN-LAST:event_addEmployeesButtonActionPerformed
 

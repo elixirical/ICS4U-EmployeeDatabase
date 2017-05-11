@@ -32,21 +32,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="annualSalaryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="hourlyWageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="hoursPerWeekLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="weeksPerYearLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="annualSalaryForm" alignment="1" pref="196" max="32767" attributes="0"/>
-                          <Component id="hourlyWageForm" alignment="1" max="32767" attributes="0"/>
-                          <Component id="hoursPerWeekForm" alignment="1" max="32767" attributes="0"/>
-                          <Component id="weeksPerYearForm" alignment="1" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="deductionRateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -59,7 +44,28 @@
                           <Component id="lastNameForm" alignment="0" max="32767" attributes="0"/>
                           <Component id="firstNameForm" alignment="0" max="32767" attributes="0"/>
                           <Component id="deductionRateForm" alignment="1" max="32767" attributes="0"/>
-                          <Component id="deductionRateForm1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="employeeNumberForm" alignment="1" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="annualSalaryLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="hourlyWageLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="hoursPerWeekLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="weeksPerYearLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                              <Component id="addEmployeeButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="annualSalaryForm" alignment="1" pref="196" max="32767" attributes="0"/>
+                              <Component id="hourlyWageForm" alignment="1" max="32767" attributes="0"/>
+                              <Component id="hoursPerWeekForm" alignment="1" max="32767" attributes="0"/>
+                              <Component id="weeksPerYearForm" alignment="1" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -100,7 +106,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="deductionRateLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="deductionRateForm1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="employeeNumberForm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -127,6 +133,8 @@
                   <Component id="weeksPerYearLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="weeksPerYearForm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="addEmployeeButton" min="-2" pref="23" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -139,6 +147,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="firstNameForm">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameFormActionPerformed"/>
       </Events>
@@ -149,6 +160,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="lastNameForm">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameFormActionPerformed"/>
       </Events>
@@ -159,6 +173,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="locationForm">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="deductionRateLabel">
       <Properties>
@@ -166,6 +183,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="deductionRateForm">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JRadioButton" name="fullTimeRadioButton">
       <Properties>
@@ -217,11 +237,19 @@
     </Component>
     <Component class="javax.swing.JTextField" name="weeksPerYearForm">
     </Component>
-    <Component class="javax.swing.JTextField" name="deductionRateForm1">
+    <Component class="javax.swing.JTextField" name="employeeNumberForm">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JLabel" name="deductionRateLabel1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Employee Number"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="addEmployeeButton">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Add Employee"/>
       </Properties>
     </Component>
   </SubComponents>
