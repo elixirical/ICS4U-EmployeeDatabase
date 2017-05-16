@@ -9,16 +9,16 @@ package employeedatabase;
  *
  * @author Haichen
  */
-public class PartTimeEmployee {
+public class PartTimeEmployee extends EmployeeData {
     private int weeks;
     private double perYear;
     private double hourlyWage;
     
-    public void setPartTimeEmployee(int EN, String FN, String LN, String loc, double deduc, int weeks, double year, double wage) {
-        EmployeeData blah = new EmployeeData(EN, FN, LN, loc, deduc);
+    public void setPartTimeEmployee(int EN, String FN, String LN, String loc, double deduc, double wage, double weeks, double year) {
+        this.setEmployee(EN, FN, LN, loc, deduc);
+        this.hourlyWage = wage;
         this.weeks = weeks;
         this.perYear = year;
-        this.hourlyWage = wage;
     }
     
     public double getWeeks() {

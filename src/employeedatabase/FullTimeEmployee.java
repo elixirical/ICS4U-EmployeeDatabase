@@ -9,12 +9,12 @@ package employeedatabase;
  *
  * @author Haichen
  */
-public class FullTimeEmployee {
+public class FullTimeEmployee extends EmployeeData {
 
     private double salary;
-
+    
     public void setFullTimeEmployee(int EN, String FN, String LN, String loc, double deduc, double sal) {
-        EmployeeData blah = new EmployeeData(EN, FN, LN, loc, deduc);
+        this.setEmployee(EN, FN, LN, loc, deduc);
         this.salary = sal;
     }
     
