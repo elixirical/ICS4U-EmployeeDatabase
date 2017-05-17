@@ -256,8 +256,8 @@ public class AddEmployee extends javax.swing.JFrame {
                     lastNameForm.getText(),
                     locationForm.getText(),
                     Double.parseDouble(deductionRateForm.getText()),
-                    Integer.parseInt(hourlyWageForm.getText()),
-                    Double.parseDouble(hoursPerWeekForm.getText()),
+                    Double.parseDouble(hourlyWageForm.getText()),
+                    Integer.parseInt(hoursPerWeekForm.getText()),
                     Double.parseDouble(weeksPerYearForm.getText())
             );
             System.out.println(blah.getFirstName());
