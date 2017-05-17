@@ -14,10 +14,10 @@ public class PartTimeEmployee extends EmployeeData {
     private double perYear;
     private double hourlyWage;
     
-    public void setPartTimeEmployee(int EN, String FN, String LN, String loc, double deduc, double wage, double weeks, double year) {
+    public void setPartTimeEmployee(int EN, String FN, String LN, String loc, double deduc, double wage, int week, double year) {
         this.setEmployee(EN, FN, LN, loc, deduc);
         this.hourlyWage = wage;
-        this.weeks = weeks;
+        this.weeks = week;
         this.perYear = year;
     }
     

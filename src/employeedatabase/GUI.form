@@ -41,6 +41,13 @@
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="saveDatabaseButton" alignment="0" max="32767" attributes="0"/>
+                          <Component id="loadDatabaseButton" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel1" max="32767" attributes="0"/>
@@ -64,6 +71,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="saveDatabaseButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="loadDatabaseButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="ExitButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel1" max="32767" attributes="0"/>
@@ -84,7 +95,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jTabbedPane1" alignment="0" pref="471" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -135,7 +146,7 @@
                             <Column editable="false" title="Deduction Rate" type="java.lang.Double"/>
                             <Column editable="false" title="Hourly Pay" type="java.lang.Double"/>
                             <Column editable="false" title="Hours/Week" type="java.lang.Double"/>
-                            <Column editable="true" title="Weeks/Year" type="java.lang.Double"/>
+                            <Column editable="true" title="Weeks/Year" type="java.lang.Integer"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -222,10 +233,7 @@
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane4" alignment="0" pref="443" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -250,7 +258,7 @@
                             <Column editable="true" title="Deduction Rate" type="java.lang.Double"/>
                             <Column editable="false" title="Hourly Pay" type="java.lang.Double"/>
                             <Column editable="true" title="Hours/Week" type="java.lang.Double"/>
-                            <Column editable="false" title="Weeks/Year" type="java.lang.Double"/>
+                            <Column editable="false" title="Weeks/Year" type="java.lang.Integer"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -365,6 +373,23 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="save things"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="loadDatabaseButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Load Database"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadDatabaseButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="saveDatabaseButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Save Database"/>
+        <Property name="actionCommand" type="java.lang.String" value="Add Employee"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveDatabaseButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
