@@ -21,11 +21,10 @@ public class GUI extends javax.swing.JFrame {
         addEmployeesButton = new javax.swing.JButton();
         removeEmployeesButton = new javax.swing.JButton();
         ExitButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        searchField = new javax.swing.JTextField();
         loadDatabaseButton = new javax.swing.JButton();
         saveDatabaseButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,7 +40,7 @@ public class GUI extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -81,7 +80,7 @@ public class GUI extends javax.swing.JFrame {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, false, true, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -140,16 +139,12 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setText("Search");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        searchField.setText("Search");
+        searchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                searchFieldActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("load things");
-
-        jLabel2.setText("save things");
 
         loadDatabaseButton.setText("Load Database");
         loadDatabaseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -166,29 +161,31 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        searchButton.setText("✓");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(removeEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(jTextField1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(saveDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(loadDatabaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(addEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(removeEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(saveDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(loadDatabaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -203,11 +200,9 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(removeEmployeesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(saveDatabaseButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -227,16 +222,48 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addEmployeesButtonActionPerformed
 
     private void removeEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeesButtonActionPerformed
-
+        if (jTabbedPane1.isEnabledAt(1)) {
+            if (fullTable.getSelectedRow() > -1) {
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) fullTable.getModel();
+                int employeeNumber = (Integer) model.getValueAt(fullTable.getSelectedRow(), 3);
+                Primary.bigList.removeFromTable(employeeNumber);
+                model.removeRow(fullTable.getSelectedRow());
+                if (searchTable.getModel().getRowCount() > 0) {
+                    for (int n = 0; n < searchTable.getModel().getRowCount(); n++) {
+                        int compareNumber = (Integer) model.getValueAt(n, 3);
+                        if (employeeNumber == compareNumber) {
+                            javax.swing.table.DefaultTableModel otherModel = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+                            otherModel.removeRow(n);
+                        }
+                    }
+                }
+            }
+        } else if (jTabbedPane1.isEnabledAt(2)) {
+            if (searchTable.getSelectedRow() > -1) {
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+                int employeeNumber = (Integer) model.getValueAt(searchTable.getSelectedRow(), 3);
+                Primary.bigList.removeFromTable(employeeNumber);
+                model.removeRow(searchTable.getSelectedRow());
+                if (fullTable.getModel().getRowCount() > 0) {
+                    for (int n = 0; n < fullTable.getModel().getRowCount(); n++) {
+                        int compareNumber = (Integer) model.getValueAt(n, 3);
+                        if (employeeNumber == compareNumber) {
+                            javax.swing.table.DefaultTableModel otherModel = (javax.swing.table.DefaultTableModel) fullTable.getModel();
+                            otherModel.removeRow(n);
+                        }
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_removeEmployeesButtonActionPerformed
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void searchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_searchFieldActionPerformed
 
     private void loadDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadDatabaseButtonActionPerformed
         // TODO add your handling code here:
@@ -245,6 +272,36 @@ public class GUI extends javax.swing.JFrame {
     private void saveDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDatabaseButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_saveDatabaseButtonActionPerformed
+    
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        /*javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+        if (Primary.bigList.getEmployeeFromNumber(Integer.parseInt(searchField.getText())).getFullTime()) {
+            FullTimeEmployee employeeVar = Primary.bigList.getEmployeeFromNumber(Integer.parseInt(searchField.getText()));
+            Object[] row = {employeeVar.getFirstName(), 
+                            employeeVar.getLastName(), 
+                            employeeVar.getLocation(), 
+                            employeeVar.getEmpNumber(), 
+                            true, 
+                            employeeVar.getSalary(), 
+                            employeeVar.getDeduction(),
+                            null, 
+                            null, 
+                            null};
+            model.addRow(row);
+        } else if (!employeeVar.getFullTime()) {
+            Object[] row = {employeeVar.getFirstName(), 
+                            employeeVar.getLastName(), 
+                            employeeVar.getLocation(), 
+                            employeeVar.getEmpNumber(), 
+                            false, 
+                            null, 
+                            employeeVar.getDeduction(),
+                            employeeVar.getHourlyWage(),
+                            employeeVar.getWeeks(),
+                            employeeVar.getPerYear()};
+            model.addRow(row);
+        }*/
+    }//GEN-LAST:event_searchButtonActionPerformed
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -278,18 +335,17 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton addEmployeesButton;
     public static javax.swing.JTable fullTable;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton loadDatabaseButton;
     private javax.swing.JButton removeEmployeesButton;
     private javax.swing.JButton saveDatabaseButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchField;
     public static javax.swing.JTable searchTable;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,29 +24,21 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="addEmployeesButton" alignment="0" pref="125" max="32767" attributes="0"/>
-                          <Component id="removeEmployeesButton" alignment="0" pref="125" max="32767" attributes="0"/>
-                          <Component id="ExitButton" alignment="0" pref="125" max="32767" attributes="0"/>
-                          <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="addEmployeesButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="removeEmployeesButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="ExitButton" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="searchField" min="-2" pref="76" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="searchButton" min="-2" pref="41" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="saveDatabaseButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="loadDatabaseButton" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="saveDatabaseButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="loadDatabaseButton" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -65,11 +57,10 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="removeEmployeesButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="searchField" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="saveDatabaseButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -146,7 +137,7 @@
                             <Column editable="false" title="Deduction Rate" type="java.lang.Double"/>
                             <Column editable="false" title="Hourly Pay" type="java.lang.Double"/>
                             <Column editable="false" title="Hours/Week" type="java.lang.Double"/>
-                            <Column editable="true" title="Weeks/Year" type="java.lang.Integer"/>
+                            <Column editable="false" title="Weeks/Year" type="java.lang.Integer"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -255,9 +246,9 @@
                             <Column editable="false" title="Employee Number" type="java.lang.Integer"/>
                             <Column editable="false" title="Full Time?" type="java.lang.Boolean"/>
                             <Column editable="false" title="Salary" type="java.lang.Double"/>
-                            <Column editable="true" title="Deduction Rate" type="java.lang.Double"/>
+                            <Column editable="false" title="Deduction Rate" type="java.lang.Double"/>
                             <Column editable="false" title="Hourly Pay" type="java.lang.Double"/>
-                            <Column editable="true" title="Hours/Week" type="java.lang.Double"/>
+                            <Column editable="false" title="Hours/Week" type="java.lang.Double"/>
                             <Column editable="false" title="Weeks/Year" type="java.lang.Integer"/>
                           </Table>
                         </Property>
@@ -356,23 +347,13 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="searchField">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchFieldActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="load things"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="save things"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="loadDatabaseButton">
       <Properties>
@@ -389,6 +370,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveDatabaseButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="searchButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#x2713;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -54,6 +54,15 @@ public class EmployeeTable {
 			return toReturn;
 		} else return null;
 	}
+        
+        public EmployeeData getEmployeeFromNumber ( int employeeNumber ) {
+            int location = findInTable(employeeNumber);
+		if (location >= 0) {
+			int whichBucket = calcBucket(employeeNumber);
+			EmployeeData toReturn = hashTable[whichBucket].get(location);
+			return toReturn;
+		} else return null;
+        }
 	
 	public int findInTable ( int searchNumber ) { //searchTable??
 		int whichBucket = calcBucket(searchNumber);

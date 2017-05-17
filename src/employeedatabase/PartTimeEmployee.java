@@ -14,11 +14,14 @@ public class PartTimeEmployee extends EmployeeData {
     private double perYear;
     private double hourlyWage;
     
+    boolean fullTime = true;
+    
     public void setPartTimeEmployee(int EN, String FN, String LN, String loc, double deduc, double wage, int week, double year) {
         this.setEmployee(EN, FN, LN, loc, deduc);
         this.hourlyWage = wage;
         this.weeks = week;
         this.perYear = year;
+        this.setFullTime(false);
     }
     
     public double getWeeks() {

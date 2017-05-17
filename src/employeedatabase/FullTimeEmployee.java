@@ -16,6 +16,7 @@ public class FullTimeEmployee extends EmployeeData {
     public void setFullTimeEmployee(int EN, String FN, String LN, String loc, double deduc, double sal) {
         this.setEmployee(EN, FN, LN, loc, deduc);
         this.salary = sal;
+        this.setFullTime(true);
     }
     
     public double getSalary() {

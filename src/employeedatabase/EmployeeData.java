@@ -16,6 +16,13 @@ public class EmployeeData {
     private String lastName;
     private String location;
     private double deduction;
+    
+    private boolean fullTime;
+    public void setFullTime(boolean arg) {
+        fullTime = arg;
+    } public boolean getFullTime() {
+        return fullTime;
+    }
 
     public EmployeeData(int EN, String FN, String LN, String loc, double deduc) {
         setEmpNumber(EN);

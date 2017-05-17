@@ -13,6 +13,10 @@ package employeedatabase;
 public class Primary {
     
     static EmployeeTable bigList = new EmployeeTable(10);
+    
+    public static EmployeeTable getTable() {
+        return bigList;
+    }
 
     public static void main(String args[]) {
         GUI thing = new GUI();
