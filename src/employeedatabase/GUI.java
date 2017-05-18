@@ -91,6 +91,7 @@ public class GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        searchTable.setCellSelectionEnabled(true);
         jScrollPane4.setViewportView(searchTable);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -222,37 +223,24 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addEmployeesButtonActionPerformed
 
     private void removeEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeEmployeesButtonActionPerformed
-        if (jTabbedPane1.isEnabledAt(1)) {
+        Primary.bigList.displayContents();
+        if (jTabbedPane1.getSelectedIndex() == 0) {
             if (fullTable.getSelectedRow() > -1) {
                 javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) fullTable.getModel();
                 int employeeNumber = (Integer) model.getValueAt(fullTable.getSelectedRow(), 3);
                 Primary.bigList.removeFromTable(employeeNumber);
                 model.removeRow(fullTable.getSelectedRow());
-                if (searchTable.getModel().getRowCount() > 0) {
-                    for (int n = 0; n < searchTable.getModel().getRowCount(); n++) {
-                        int compareNumber = (Integer) model.getValueAt(n, 3);
-                        if (employeeNumber == compareNumber) {
-                            javax.swing.table.DefaultTableModel otherModel = (javax.swing.table.DefaultTableModel) searchTable.getModel();
-                            otherModel.removeRow(n);
-                        }
-                    }
-                }
+                
+                //remove from the other fucking table figure this out ahhhhh
             }
-        } else if (jTabbedPane1.isEnabledAt(2)) {
+        } else if (jTabbedPane1.getSelectedIndex() == 1) {
             if (searchTable.getSelectedRow() > -1) {
                 javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
                 int employeeNumber = (Integer) model.getValueAt(searchTable.getSelectedRow(), 3);
                 Primary.bigList.removeFromTable(employeeNumber);
                 model.removeRow(searchTable.getSelectedRow());
-                if (fullTable.getModel().getRowCount() > 0) {
-                    for (int n = 0; n < fullTable.getModel().getRowCount(); n++) {
-                        int compareNumber = (Integer) model.getValueAt(n, 3);
-                        if (employeeNumber == compareNumber) {
-                            javax.swing.table.DefaultTableModel otherModel = (javax.swing.table.DefaultTableModel) fullTable.getModel();
-                            otherModel.removeRow(n);
-                        }
-                    }
-                }
+                
+                //remove from the other fucking table figure this out ahhhhh
             }
         }
     }//GEN-LAST:event_removeEmployeesButtonActionPerformed
@@ -274,9 +262,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_saveDatabaseButtonActionPerformed
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        /*javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
-        if (Primary.bigList.getEmployeeFromNumber(Integer.parseInt(searchField.getText())).getFullTime()) {
-            FullTimeEmployee employeeVar = Primary.bigList.getEmployeeFromNumber(Integer.parseInt(searchField.getText()));
+        int searchValue = Integer.parseInt(searchField.getText());
+        if (Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+            FullTimeEmployee employeeVar = (FullTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
+            System.out.println(employeeVar.getSalary());
             Object[] row = {employeeVar.getFirstName(), 
                             employeeVar.getLastName(), 
                             employeeVar.getLocation(), 
@@ -288,19 +278,23 @@ public class GUI extends javax.swing.JFrame {
                             null, 
                             null};
             model.addRow(row);
-        } else if (!employeeVar.getFullTime()) {
+        } else if (!Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+            PartTimeEmployee employeeVar = (PartTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
+            System.out.println(employeeVar.getHourlyWage());
             Object[] row = {employeeVar.getFirstName(), 
                             employeeVar.getLastName(), 
                             employeeVar.getLocation(), 
                             employeeVar.getEmpNumber(), 
                             false, 
-                            null, 
+                            (employeeVar.getHourlyWage()*employeeVar.getPerYear()*employeeVar.getWeeks()), 
                             employeeVar.getDeduction(),
                             employeeVar.getHourlyWage(),
                             employeeVar.getWeeks(),
-                            employeeVar.getPerYear()};
+                            employeeVar.getPerYear()}; 
             model.addRow(row);
-        }*/
+        }
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_searchButtonActionPerformed
     
     public static void main(String args[]) {

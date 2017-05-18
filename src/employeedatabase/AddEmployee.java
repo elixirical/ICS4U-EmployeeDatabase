@@ -37,6 +37,7 @@ public class AddEmployee extends javax.swing.JFrame {
         employeeNumberForm = new javax.swing.JTextField();
         deductionRateLabel1 = new javax.swing.JLabel();
         addEmployeeButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +94,13 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -129,16 +137,16 @@ public class AddEmployee extends javax.swing.JFrame {
                                     .addComponent(hoursPerWeekForm, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(weeksPerYearForm, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(fullTimeRadioButton)
-                                .addGap(29, 29, 29)
-                                .addComponent(partTimeRadioButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(addEmployeeButton)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(67, 67, 67)
+                        .addComponent(fullTimeRadioButton)
+                        .addGap(29, 29, 29)
+                        .addComponent(partTimeRadioButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cancelButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addEmployeeButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -184,9 +192,11 @@ public class AddEmployee extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(weeksPerYearLabel)
                     .addComponent(weeksPerYearForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         firstNameForm.getAccessibleContext().setAccessibleName("");
@@ -268,16 +278,20 @@ public class AddEmployee extends javax.swing.JFrame {
                             blah.getLocation(), 
                             blah.getEmpNumber(), 
                             false, 
-                            null, 
+                            (blah.getHourlyWage()*blah.getPerYear()*blah.getWeeks()), 
                             blah.getDeduction(),
                             blah.getHourlyWage(),
                             blah.getWeeks(),
-                            blah.getPerYear()};
+                            blah.getPerYear()}; 
             javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
             model.addRow(row);
         }
         dispose();
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -319,6 +333,7 @@ public class AddEmployee extends javax.swing.JFrame {
     private javax.swing.JTextField annualSalaryForm;
     private javax.swing.JLabel annualSalaryLabel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JTextField deductionRateForm;
     private javax.swing.JLabel deductionRateLabel;
     private javax.swing.JLabel deductionRateLabel1;
