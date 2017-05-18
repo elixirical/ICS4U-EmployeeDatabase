@@ -231,16 +231,24 @@ public class GUI extends javax.swing.JFrame {
                 Primary.bigList.removeFromTable(employeeNumber);
                 model.removeRow(fullTable.getSelectedRow());
                 
+                javax.swing.table.DefaultTableModel searchModel = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+                searchModel.removeRow(0);
+                
                 //remove from the other fucking table figure this out ahhhhh
             }
         } else if (jTabbedPane1.getSelectedIndex() == 1) {
             if (searchTable.getSelectedRow() > -1) {
                 javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+                System.out.println(searchTable.getSelectedRow());
                 int employeeNumber = (Integer) model.getValueAt(searchTable.getSelectedRow(), 3);
                 Primary.bigList.removeFromTable(employeeNumber);
                 model.removeRow(searchTable.getSelectedRow());
                 
-                //remove from the other fucking table figure this out ahhhhh
+                javax.swing.table.DefaultTableModel fullModel = (javax.swing.table.DefaultTableModel) fullTable.getModel();
+                fullModel.setRowCount(0);
+                Primary.bigList.hashToTable();
+                
+                jTabbedPane1.setSelectedIndex(0);
             }
         }
     }//GEN-LAST:event_removeEmployeesButtonActionPerformed
@@ -263,8 +271,11 @@ public class GUI extends javax.swing.JFrame {
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         int searchValue = Integer.parseInt(searchField.getText());
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+        if (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
         if (Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
-            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
             FullTimeEmployee employeeVar = (FullTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
             System.out.println(employeeVar.getSalary());
             Object[] row = {employeeVar.getFirstName(), 
@@ -279,7 +290,6 @@ public class GUI extends javax.swing.JFrame {
                             null};
             model.addRow(row);
         } else if (!Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
-            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
             PartTimeEmployee employeeVar = (PartTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
             System.out.println(employeeVar.getHourlyWage());
             Object[] row = {employeeVar.getFirstName(), 

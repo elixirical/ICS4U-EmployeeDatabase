@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package employeedatabase;
+import static employeedatabase.GUI.searchTable;
 import java.util.ArrayList;
 /**
  *
@@ -78,5 +79,45 @@ public class EmployeeTable {
 			hashTable[n].forEach((a) -> System.out.println(a.getEmpNumber() + " " + a.getFirstName()));
 		}
 	}
+        
+        public void hashToTable () {
+            for (int n = 0; n < k; n++) {
+                hashTable[n].forEach((a) -> {
+                    if (a.getFullTime()) {
+                        FullTimeEmployee b = (FullTimeEmployee) a;
+                        Object[] row = {b.getFirstName(), 
+                            b.getLastName(), 
+                            b.getLocation(), 
+                            b.getEmpNumber(), 
+                            true, 
+                            b.getSalary(), 
+                            b.getDeduction(),
+                            null, 
+                            null, 
+                            null};
+                        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
+                        model.addRow(row);
+                    } else if (!a.getFullTime()) {
+                        PartTimeEmployee b = (PartTimeEmployee) a;
+                        Object[] row = {b.getFirstName(), 
+                            b.getLastName(), 
+                            b.getLocation(), 
+                            b.getEmpNumber(), 
+                            false, 
+                            (b.getHourlyWage()*b.getPerYear()*b.getWeeks()), 
+                            b.getDeduction(),
+                            b.getHourlyWage(),
+                            b.getWeeks(),
+                            b.getPerYear()};
+                        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
+                        model.addRow(row);
+                    }
+                });
+            }
+            
+	}
 	
+        public int getNumItems () {
+            return numItems;
+        }
 }
