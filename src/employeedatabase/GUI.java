@@ -3,6 +3,7 @@ package employeedatabase;
 public class GUI extends javax.swing.JFrame {
     
     public GUI() {
+        super("Employee Database"); 
         initComponents();
     }
     
@@ -25,6 +26,8 @@ public class GUI extends javax.swing.JFrame {
         loadDatabaseButton = new javax.swing.JButton();
         saveDatabaseButton = new javax.swing.JButton();
         searchButton = new javax.swing.JButton();
+        editEmployeeButton = new javax.swing.JButton();
+        refreshListButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +62,7 @@ public class GUI extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,7 +101,7 @@ public class GUI extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 731, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,6 +172,22 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        editEmployeeButton.setText("Edit Employee");
+        editEmployeeButton.setActionCommand("Add Employee");
+        editEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editEmployeeButtonActionPerformed(evt);
+            }
+        });
+
+        refreshListButton.setText("Refresh List");
+        refreshListButton.setActionCommand("Add Employee");
+        refreshListButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshListButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -176,18 +195,24 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(addEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(removeEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(saveDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(loadDatabaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(addEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(removeEmployeesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ExitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(saveDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(loadDatabaseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(editEmployeeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(refreshListButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -201,10 +226,14 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(removeEmployeesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(editEmployeeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(searchButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(refreshListButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(saveDatabaseButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(loadDatabaseButton)
@@ -277,7 +306,6 @@ public class GUI extends javax.swing.JFrame {
         }
         if (Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
             FullTimeEmployee employeeVar = (FullTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
-            System.out.println(employeeVar.getSalary());
             Object[] row = {employeeVar.getFirstName(), 
                             employeeVar.getLastName(), 
                             employeeVar.getLocation(), 
@@ -291,7 +319,6 @@ public class GUI extends javax.swing.JFrame {
             model.addRow(row);
         } else if (!Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
             PartTimeEmployee employeeVar = (PartTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
-            System.out.println(employeeVar.getHourlyWage());
             Object[] row = {employeeVar.getFirstName(), 
                             employeeVar.getLastName(), 
                             employeeVar.getLocation(), 
@@ -306,6 +333,32 @@ public class GUI extends javax.swing.JFrame {
         }
         jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
+        int employeeNumber = -1;
+        if (jTabbedPane1.getSelectedIndex() == 0) {
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) fullTable.getModel();
+            employeeNumber = (Integer) model.getValueAt(fullTable.getSelectedRow(), 3);
+        } else if (jTabbedPane1.getSelectedIndex() == 1) {
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+            employeeNumber = (Integer) model.getValueAt(searchTable.getSelectedRow(), 3);
+        }
+        EditEmployee editPopup = new EditEmployee(Primary.bigList.getEmployeeFromNumber(employeeNumber));
+        editPopup.setVisible(true);
+    }//GEN-LAST:event_editEmployeeButtonActionPerformed
+
+    private void refreshListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshListButtonActionPerformed
+        refreshList();
+    }//GEN-LAST:event_refreshListButtonActionPerformed
+    
+    public void refreshList() {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+        model.setRowCount(0);
+        model = (javax.swing.table.DefaultTableModel) fullTable.getModel();
+        model.setRowCount(0);
+        Primary.bigList.hashToTable();
+        jTabbedPane1.setSelectedIndex(0);
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -331,21 +384,33 @@ public class GUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);
+                
             }
         });
+    }
+    
+    public javax.swing.table.AbstractTableModel getSearchTableAbstractTableModel() {
+        javax.swing.table.AbstractTableModel model = (javax.swing.table.AbstractTableModel) searchTable.getModel();
+        return model;
+    }
+    
+    public javax.swing.JTabbedPane getJTabbedPane1() {
+        return jTabbedPane1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ExitButton;
     private javax.swing.JButton addEmployeesButton;
+    private javax.swing.JButton editEmployeeButton;
     public static javax.swing.JTable fullTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    public static javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton loadDatabaseButton;
+    private javax.swing.JButton refreshListButton;
     private javax.swing.JButton removeEmployeesButton;
     private javax.swing.JButton saveDatabaseButton;
     private javax.swing.JButton searchButton;
