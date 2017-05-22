@@ -236,7 +236,7 @@ public class EditEmployee extends javax.swing.JFrame {
             partTime.setDeduction(Double.parseDouble(deductionRateForm.getText()));
             partTime.setHourlyWage(Double.parseDouble(hourlyWageForm.getText()));
             partTime.setWeeks(Integer.parseInt(hoursPerWeekForm.getText()));
-            partTime.setSalary(Double.parseDouble(weeksPerYearForm.getText()));
+            partTime.setPerYear(Double.parseDouble(weeksPerYearForm.getText()));
             if (GUI.jTabbedPane1.getSelectedIndex() == 1) {
                 javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.searchTable.getModel();
                 model.setRowCount(0);

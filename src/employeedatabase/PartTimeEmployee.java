@@ -36,7 +36,7 @@ public class PartTimeEmployee extends EmployeeData {
         return perYear;
     }
     
-    public void setSalary(double perYear) {
+    public void setPerYear(double perYear) {
         this.perYear = perYear;
     }
     

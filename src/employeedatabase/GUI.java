@@ -292,10 +292,12 @@ public class GUI extends javax.swing.JFrame {
 
     private void loadDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadDatabaseButtonActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_loadDatabaseButtonActionPerformed
 
     private void saveDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDatabaseButtonActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_saveDatabaseButtonActionPerformed
     
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
