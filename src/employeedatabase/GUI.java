@@ -36,7 +36,7 @@ public class GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Last Name", "First Name", "Location", "Employee Number", "Full Time?", "Salary", "Deduction Rate", "Hourly Pay", "Hours/Week", "Weeks/Year"
+                "First Name", "Last Name", "Location", "Employee Number", "Full Time?", "Salary", "Deduction Rate", "Hourly Pay", "Hours/Week", "Weeks/Year"
             }
         ) {
             Class[] types = new Class [] {
@@ -291,12 +291,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_searchFieldActionPerformed
 
     private void loadDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadDatabaseButtonActionPerformed
-        // TODO add your handling code here:
+        InputOutput thing = new InputOutput();
+        thing.readFromFile();
 
     }//GEN-LAST:event_loadDatabaseButtonActionPerformed
 
     private void saveDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDatabaseButtonActionPerformed
-        // TODO add your handling code here:
+        InputOutput thing = new InputOutput();
+        thing.writeToFile();
 
     }//GEN-LAST:event_saveDatabaseButtonActionPerformed
     

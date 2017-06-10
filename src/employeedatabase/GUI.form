@@ -144,8 +144,8 @@
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="10" rowCount="0">
-                            <Column editable="false" title="Last Name" type="java.lang.String"/>
                             <Column editable="false" title="First Name" type="java.lang.String"/>
+                            <Column editable="false" title="Last Name" type="java.lang.String"/>
                             <Column editable="false" title="Location" type="java.lang.String"/>
                             <Column editable="false" title="Employee Number" type="java.lang.Integer"/>
                             <Column editable="false" title="Full Time?" type="java.lang.Boolean"/>

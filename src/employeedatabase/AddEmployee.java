@@ -3,7 +3,7 @@ package employeedatabase;
 public class AddEmployee extends javax.swing.JFrame {
 
     public AddEmployee() {
-        super("Add Employee"); 
+        super("Add Employee");
         initComponents();
         setDefaultCloseOperation(EditEmployee.DISPOSE_ON_CLOSE);
     }
@@ -43,7 +43,7 @@ public class AddEmployee extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        firstNameLabel.setText("Last Name");
+        firstNameLabel.setText("First Name");
 
         firstNameForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,7 +51,7 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
-        lastNameLabel.setText("First Name");
+        lastNameLabel.setText("Last Name");
 
         lastNameForm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,60 +233,85 @@ public class AddEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_partTimeRadioButtonActionPerformed
 
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
-        
+
         if (fullTimeRadioButton.isSelected() == true) {
-            FullTimeEmployee blah = new FullTimeEmployee();
-            blah.setFullTimeEmployee(
-                    Integer.parseInt(employeeNumberForm.getText()),
-                    firstNameForm.getText(),
-                    lastNameForm.getText(),
-                    locationForm.getText(),
-                    Double.parseDouble(deductionRateForm.getText()),
-                    Double.parseDouble(annualSalaryForm.getText())
-            );
-            System.out.println(blah.getFirstName());
-            Primary.bigList.addToTable(blah);
-            
-            Object[] row = {blah.getFirstName(), 
-                            blah.getLastName(), 
-                            blah.getLocation(), 
-                            blah.getEmpNumber(), 
-                            true, 
-                            blah.getSalary(), 
-                            blah.getDeduction(),
-                            null, 
-                            null, 
-                            null};
-            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
-            model.addRow(row);
+            int employeeNumCheck;
+            try {
+                for (int a = 1; a < Primary.bigList.getNumItems(); a++) {
+                    if () {
+                        SameEmployeeNumber fail = new SameEmployeeNumber();
+                        fail.setVisible(true);
+                    }
+                }
+                FullTimeEmployee blah = new FullTimeEmployee();
+                blah.setFullTimeEmployee(
+                        Integer.parseInt(employeeNumberForm.getText()),
+                        firstNameForm.getText(),
+                        lastNameForm.getText(),
+                        locationForm.getText(),
+                        Double.parseDouble(deductionRateForm.getText()),
+                        Double.parseDouble(annualSalaryForm.getText())
+                );
+                System.out.println(blah.getFirstName());
+                Primary.bigList.addToTable(blah);
+
+                Object[] row = {blah.getFirstName(),
+                    blah.getLastName(),
+                    blah.getLocation(),
+                    blah.getEmpNumber(),
+                    true,
+                    blah.getSalary(),
+                    blah.getDeduction(),
+                    null,
+                    null,
+                    null};
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
+                model.addRow(row);
+
+            } catch (Exception e) {
+                ErrorCheckFail popup = new ErrorCheckFail();
+                popup.setVisible(true);
+            }
 
         } else {
-            PartTimeEmployee blah = new PartTimeEmployee();
-            blah.setPartTimeEmployee(
-                    Integer.parseInt(employeeNumberForm.getText()),
-                    firstNameForm.getText(),
-                    lastNameForm.getText(),
-                    locationForm.getText(),
-                    Double.parseDouble(deductionRateForm.getText()),
-                    Double.parseDouble(hourlyWageForm.getText()),
-                    Integer.parseInt(hoursPerWeekForm.getText()),
-                    Double.parseDouble(weeksPerYearForm.getText())
-            );
-            System.out.println(blah.getFirstName());
-            Primary.bigList.addToTable(blah);
-            
-            Object[] row = {blah.getFirstName(), 
-                            blah.getLastName(), 
-                            blah.getLocation(), 
-                            blah.getEmpNumber(), 
-                            false, 
-                            (blah.getHourlyWage()*blah.getPerYear()*blah.getWeeks()), 
-                            blah.getDeduction(),
-                            blah.getHourlyWage(),
-                            blah.getWeeks(),
-                            blah.getPerYear()}; 
-            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
-            model.addRow(row);
+            try {
+                for (int a = 1; a < Primary.bigList.getNumItems(); a++) {
+                    if () {
+                        SameEmployeeNumber fail = new SameEmployeeNumber();
+                        fail.setVisible(true);
+                    }
+                }
+                PartTimeEmployee blah = new PartTimeEmployee();
+                blah.setPartTimeEmployee(
+                        Integer.parseInt(employeeNumberForm.getText()),
+                        firstNameForm.getText(),
+                        lastNameForm.getText(),
+                        locationForm.getText(),
+                        Double.parseDouble(deductionRateForm.getText()),
+                        Double.parseDouble(hourlyWageForm.getText()),
+                        Integer.parseInt(hoursPerWeekForm.getText()),
+                        Double.parseDouble(weeksPerYearForm.getText())
+                );
+                System.out.println(blah.getFirstName());
+                Primary.bigList.addToTable(blah);
+
+                Object[] row = {blah.getFirstName(),
+                    blah.getLastName(),
+                    blah.getLocation(),
+                    blah.getEmpNumber(),
+                    false,
+                    (blah.getHourlyWage() * blah.getPerYear() * blah.getWeeks()),
+                    blah.getDeduction(),
+                    blah.getHourlyWage(),
+                    blah.getWeeks(),
+                    blah.getPerYear()};
+                javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
+                model.addRow(row);
+
+            } catch (Exception e) {
+                ErrorCheckFail popup = new ErrorCheckFail();
+                popup.setVisible(true);
+            }
         }
         dispose();
     }//GEN-LAST:event_addEmployeeButtonActionPerformed

@@ -23,9 +23,9 @@ public class InputOutput {
 
     private BufferedWriter bw = null;
     private BufferedReader br = null;
-    private String CVSSplit = ",";
+    private final String CVSSplit = ",";
     private String line = "";
-    private ArrayList<EmployeeData> allData;
+    ArrayList<EmployeeData> allData = new ArrayList<>();
 
     public void writeToFile() {
         try {
@@ -36,26 +36,44 @@ public class InputOutput {
                 if (list[i].getFullTime() == true) {
                     FullTimeEmployee var = (FullTimeEmployee) list[i];
                     bw.write(String.valueOf(var.getFullTime()));
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getEmpNumber()));
+                    bw.write(CVSSplit);
                     bw.write(var.getFirstName());
+                    bw.write(CVSSplit);
                     bw.write(var.getLastName());
+                    bw.write(CVSSplit);
                     bw.write(var.getLocation());
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getDeduction()));
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getSalary()));
+                    bw.write(CVSSplit);
                     bw.write("");
+                    bw.write(CVSSplit);
                     bw.write("");
+                    bw.write(CVSSplit);
                     bw.write("");
                 } else {
                     PartTimeEmployee var = (PartTimeEmployee) list[i];
                     bw.write(String.valueOf(var.getFullTime()));
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getEmpNumber()));
+                    bw.write(CVSSplit);
                     bw.write(var.getFirstName());
+                    bw.write(CVSSplit);
                     bw.write(var.getLastName());
+                    bw.write(CVSSplit);
                     bw.write(var.getLocation());
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getDeduction()));
+                    bw.write(CVSSplit);
                     bw.write("");
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getHourlyWage()));
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getPerYear()));
+                    bw.write(CVSSplit);
                     bw.write(String.valueOf(var.getWeeks()));
                 }
                 bw.newLine();
@@ -107,7 +125,7 @@ public class InputOutput {
                             item[4],
                             Double.parseDouble(item[5]),
                             Double.parseDouble(item[7]),
-                            Integer.parseInt(item[8]),
+                            Double.parseDouble(item[8]),
                             Double.parseDouble(item[9])
                     );
                     System.out.println(blah.getFirstName());
@@ -126,8 +144,8 @@ public class InputOutput {
                     javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
                     model.addRow(row);
                 }
-                br.close();
             }
+            bw.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
