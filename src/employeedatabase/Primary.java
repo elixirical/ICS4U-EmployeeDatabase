@@ -5,6 +5,8 @@
  */
 package employeedatabase;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alvin
@@ -18,6 +20,8 @@ public class Primary {
         return bigList;
     }
 
+    public static ArrayList<Integer> employeeNumbers = new ArrayList<>();
+    
     public static void main(String args[]) {
         GUI thing = new GUI();
         thing.setTitle("Employee Database");

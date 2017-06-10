@@ -91,61 +91,74 @@ public class InputOutput {
             br = new BufferedReader(new FileReader("DatabaseData.csv"));
             while ((line = br.readLine()) != null) {
                 String[] item = line.split(CVSSplit);
-                if (Boolean.parseBoolean(item[0]) == true) {
-                    FullTimeEmployee blah = new FullTimeEmployee();
-                    blah.setFullTimeEmployee(
-                            Integer.parseInt(item[1]),
-                            item[2],
-                            item[3],
-                            item[4],
-                            Double.parseDouble(item[5]),
-                            Double.parseDouble(item[6])
-                    );
-                    System.out.println(blah.getFirstName());
-                    Primary.bigList.addToTable(blah);
+                if (Primary.employeeNumbers.contains(Integer.parseInt(item[1]))) {
+                    SameEmployeeNumber fail = new SameEmployeeNumber();
+                    fail.setVisible(true);
+                } else {
+                    if (Boolean.parseBoolean(item[0]) == true) {
+                        FullTimeEmployee blah = new FullTimeEmployee();
+                        blah.setFullTimeEmployee(
+                                Integer.parseInt(item[1]),
+                                item[2],
+                                item[3],
+                                item[4],
+                                Double.parseDouble(item[5]),
+                                Double.parseDouble(item[6])
+                        );
+                        System.out.println(blah.getFirstName());
+                        Primary.bigList.addToTable(blah);
 
-                    Object[] row = {blah.getFirstName(),
-                        blah.getLastName(),
-                        blah.getLocation(),
-                        blah.getEmpNumber(),
-                        true,
-                        blah.getSalary(),
-                        blah.getDeduction(),
-                        null,
-                        null,
-                        null};
-                    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
-                    model.addRow(row);
-                } else if (Boolean.parseBoolean(item[0]) == false) {
-                    PartTimeEmployee blah = new PartTimeEmployee();
-                    blah.setPartTimeEmployee(
-                            Integer.parseInt(item[1]),
-                            item[2],
-                            item[3],
-                            item[4],
-                            Double.parseDouble(item[5]),
-                            Double.parseDouble(item[7]),
-                            Double.parseDouble(item[8]),
-                            Double.parseDouble(item[9])
-                    );
-                    System.out.println(blah.getFirstName());
-                    Primary.bigList.addToTable(blah);
+                        Object[] row = {blah.getFirstName(),
+                            blah.getLastName(),
+                            blah.getLocation(),
+                            blah.getEmpNumber(),
+                            true,
+                            blah.getSalary(),
+                            blah.getDeduction(),
+                            null,
+                            null,
+                            null};
 
-                    Object[] row = {blah.getFirstName(),
-                        blah.getLastName(),
-                        blah.getLocation(),
-                        blah.getEmpNumber(),
-                        false,
-                        (blah.getHourlyWage() * blah.getPerYear() * blah.getWeeks()),
-                        blah.getDeduction(),
-                        blah.getHourlyWage(),
-                        blah.getWeeks(),
-                        blah.getPerYear()};
-                    javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
-                    model.addRow(row);
+                        Primary.employeeNumbers.add(blah.getEmpNumber());
+
+                        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
+                        model.addRow(row);
+
+                    } else if (Boolean.parseBoolean(item[0]) == false) {
+                        PartTimeEmployee blah = new PartTimeEmployee();
+                        blah.setPartTimeEmployee(
+                                Integer.parseInt(item[1]),
+                                item[2],
+                                item[3],
+                                item[4],
+                                Double.parseDouble(item[5]),
+                                Double.parseDouble(item[7]),
+                                Double.parseDouble(item[8]),
+                                Double.parseDouble(item[9])
+                        );
+                        System.out.println(blah.getFirstName());
+                        Primary.bigList.addToTable(blah);
+
+                        Object[] row = {blah.getFirstName(),
+                            blah.getLastName(),
+                            blah.getLocation(),
+                            blah.getEmpNumber(),
+                            false,
+                            (blah.getHourlyWage() * blah.getPerYear() * blah.getWeeks()),
+                            blah.getDeduction(),
+                            blah.getHourlyWage(),
+                            blah.getWeeks(),
+                            blah.getPerYear()};
+
+                        Primary.employeeNumbers.add(blah.getEmpNumber());
+
+                        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) GUI.fullTable.getModel();
+                        model.addRow(row);
+                    }
                 }
             }
             bw.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
