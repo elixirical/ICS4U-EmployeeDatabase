@@ -39,7 +39,7 @@ public class ErrorCheckFail extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("One of your inputs is invalid! Please check your inputs again!");
+        jLabel1.setText("One or more of your inputs is invalid! Please check your inputs again!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,7 +53,7 @@ public class ErrorCheckFail extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
                         .addComponent(jButton1)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

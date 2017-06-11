@@ -34,7 +34,7 @@
                       <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,7 +61,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="One of your inputs is invalid! Please check your inputs again!"/>
+        <Property name="text" type="java.lang.String" value="One or more of your inputs is invalid! Please check your inputs again!"/>
       </Properties>
     </Component>
   </SubComponents>

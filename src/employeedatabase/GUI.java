@@ -258,6 +258,7 @@ public class GUI extends javax.swing.JFrame {
                 javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) fullTable.getModel();
                 int employeeNumber = (Integer) model.getValueAt(fullTable.getSelectedRow(), 3);
                 Primary.bigList.removeFromTable(employeeNumber);
+                Primary.employeeNumbers.remove(new Integer(employeeNumber));
                 model.removeRow(fullTable.getSelectedRow());
                 
                 javax.swing.table.DefaultTableModel searchModel = (javax.swing.table.DefaultTableModel) searchTable.getModel();
@@ -271,6 +272,7 @@ public class GUI extends javax.swing.JFrame {
                 System.out.println(searchTable.getSelectedRow());
                 int employeeNumber = (Integer) model.getValueAt(searchTable.getSelectedRow(), 3);
                 Primary.bigList.removeFromTable(employeeNumber);
+                Primary.employeeNumbers.remove(new Integer(employeeNumber));
                 model.removeRow(searchTable.getSelectedRow());
                 
                 javax.swing.table.DefaultTableModel fullModel = (javax.swing.table.DefaultTableModel) fullTable.getModel();
