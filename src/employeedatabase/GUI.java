@@ -1,12 +1,12 @@
 package employeedatabase;
 
 public class GUI extends javax.swing.JFrame {
-    
+
     public GUI() {
-        super("Employee Database"); 
+        super("Employee Database");
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -245,7 +245,7 @@ public class GUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void addEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeesButtonActionPerformed
         AddEmployee newPopup = new AddEmployee();
         newPopup.setVisible(true);
@@ -260,10 +260,10 @@ public class GUI extends javax.swing.JFrame {
                 Primary.bigList.removeFromTable(employeeNumber);
                 Primary.employeeNumbers.remove(new Integer(employeeNumber));
                 model.removeRow(fullTable.getSelectedRow());
-                
+
                 javax.swing.table.DefaultTableModel searchModel = (javax.swing.table.DefaultTableModel) searchTable.getModel();
                 searchModel.removeRow(0);
-                
+
                 //remove from the other fucking table figure this out ahhhhh
             }
         } else if (jTabbedPane1.getSelectedIndex() == 1) {
@@ -274,11 +274,11 @@ public class GUI extends javax.swing.JFrame {
                 Primary.bigList.removeFromTable(employeeNumber);
                 Primary.employeeNumbers.remove(new Integer(employeeNumber));
                 model.removeRow(searchTable.getSelectedRow());
-                
+
                 javax.swing.table.DefaultTableModel fullModel = (javax.swing.table.DefaultTableModel) fullTable.getModel();
                 fullModel.setRowCount(0);
                 Primary.bigList.hashToTable();
-                
+
                 jTabbedPane1.setSelectedIndex(0);
             }
         }
@@ -303,41 +303,46 @@ public class GUI extends javax.swing.JFrame {
         thing.writeToFile();
 
     }//GEN-LAST:event_saveDatabaseButtonActionPerformed
-    
+
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        int searchValue = Integer.parseInt(searchField.getText());
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
-        if (model.getRowCount() > 0) {
-            model.removeRow(0);
+        try {
+            int searchValue = Integer.parseInt(searchField.getText());
+            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
+            if (model.getRowCount() > 0) {
+                model.removeRow(0);
+            }
+            if (Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
+                FullTimeEmployee employeeVar = (FullTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
+                Object[] row = {employeeVar.getFirstName(),
+                    employeeVar.getLastName(),
+                    employeeVar.getLocation(),
+                    employeeVar.getEmpNumber(),
+                    true,
+                    employeeVar.getSalary(),
+                    employeeVar.getDeduction(),
+                    null,
+                    null,
+                    null};
+                model.addRow(row);
+            } else if (!Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
+                PartTimeEmployee employeeVar = (PartTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
+                Object[] row = {employeeVar.getFirstName(),
+                    employeeVar.getLastName(),
+                    employeeVar.getLocation(),
+                    employeeVar.getEmpNumber(),
+                    false,
+                    (employeeVar.getHourlyWage() * employeeVar.getPerYear() * employeeVar.getWeeks()),
+                    employeeVar.getDeduction(),
+                    employeeVar.getHourlyWage(),
+                    employeeVar.getWeeks(),
+                    employeeVar.getPerYear()};
+                model.addRow(row);
+            }
+            jTabbedPane1.setSelectedIndex(1);
+        } catch (Exception e) {
+            NoEmployeeFound employeeFound = new NoEmployeeFound();
+            employeeFound.setVisible(true);
         }
-        if (Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
-            FullTimeEmployee employeeVar = (FullTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
-            Object[] row = {employeeVar.getFirstName(), 
-                            employeeVar.getLastName(), 
-                            employeeVar.getLocation(), 
-                            employeeVar.getEmpNumber(), 
-                            true, 
-                            employeeVar.getSalary(), 
-                            employeeVar.getDeduction(),
-                            null, 
-                            null, 
-                            null};
-            model.addRow(row);
-        } else if (!Primary.bigList.getEmployeeFromNumber(searchValue).getFullTime()) {
-            PartTimeEmployee employeeVar = (PartTimeEmployee) Primary.bigList.getEmployeeFromNumber(searchValue);
-            Object[] row = {employeeVar.getFirstName(), 
-                            employeeVar.getLastName(), 
-                            employeeVar.getLocation(), 
-                            employeeVar.getEmpNumber(), 
-                            false, 
-                            (employeeVar.getHourlyWage()*employeeVar.getPerYear()*employeeVar.getWeeks()), 
-                            employeeVar.getDeduction(),
-                            employeeVar.getHourlyWage(),
-                            employeeVar.getWeeks(),
-                            employeeVar.getPerYear()}; 
-            model.addRow(row);
-        }
-        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
@@ -356,7 +361,7 @@ public class GUI extends javax.swing.JFrame {
     private void refreshListButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshListButtonActionPerformed
         refreshList();
     }//GEN-LAST:event_refreshListButtonActionPerformed
-    
+
     public void refreshList() {
         javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) searchTable.getModel();
         model.setRowCount(0);
@@ -365,7 +370,7 @@ public class GUI extends javax.swing.JFrame {
         Primary.bigList.hashToTable();
         jTabbedPane1.setSelectedIndex(0);
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -374,7 +379,7 @@ public class GUI extends javax.swing.JFrame {
          */
         try {
             javax.swing.UIManager.setLookAndFeel(
-            javax.swing.UIManager.getSystemLookAndFeelClassName());
+                    javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -385,21 +390,21 @@ public class GUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new GUI().setVisible(true);
-                
+
             }
         });
     }
-    
+
     public javax.swing.table.AbstractTableModel getSearchTableAbstractTableModel() {
         javax.swing.table.AbstractTableModel model = (javax.swing.table.AbstractTableModel) searchTable.getModel();
         return model;
     }
-    
+
     public javax.swing.JTabbedPane getJTabbedPane1() {
         return jTabbedPane1;
     }
