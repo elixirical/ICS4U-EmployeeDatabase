@@ -26,6 +26,7 @@ public class InputOutput {
     private final String CVSSplit = ",";
     private String line = "";
     ArrayList<EmployeeData> allData = new ArrayList<>();
+    private boolean checkFail = false;
 
     public void writeToFile() {
         try {
@@ -92,8 +93,7 @@ public class InputOutput {
             while ((line = br.readLine()) != null) {
                 String[] item = line.split(CVSSplit);
                 if (Primary.employeeNumbers.contains(Integer.parseInt(item[1]))) {
-                    SameEmployeeNumber fail = new SameEmployeeNumber();
-                    fail.setVisible(true);
+                    checkFail = true;
                 } else {
                     if (Boolean.parseBoolean(item[0]) == true) {
                         FullTimeEmployee blah = new FullTimeEmployee();
@@ -157,6 +157,11 @@ public class InputOutput {
                     }
                 }
             }
+            if (checkFail == true) {
+                SameEmployeeNumber fail = new SameEmployeeNumber();
+                fail.setVisible(true);
+            }
+            checkFail = false;
             bw.close();
 
         } catch (FileNotFoundException e) {
