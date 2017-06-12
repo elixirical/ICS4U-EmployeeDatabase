@@ -16,6 +16,7 @@ public class ErrorCheckFail extends javax.swing.JFrame {
      */
     public ErrorCheckFail() {
         initComponents();
+        setDefaultCloseOperation(EditEmployee.DISPOSE_ON_CLOSE);
     }
 
     /**

@@ -16,6 +16,7 @@ public class SameEmployeeNumber extends javax.swing.JFrame {
      */
     public SameEmployeeNumber() {
         initComponents();
+        setDefaultCloseOperation(EditEmployee.DISPOSE_ON_CLOSE);
     }
 
     /**

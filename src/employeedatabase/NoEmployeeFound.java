@@ -16,6 +16,7 @@ public class NoEmployeeFound extends javax.swing.JFrame {
      */
     public NoEmployeeFound() {
         initComponents();
+        setDefaultCloseOperation(EditEmployee.DISPOSE_ON_CLOSE);
     }
 
     /**
